@@ -40,13 +40,13 @@ const reviews = [
 */
 
 const renderReview = (review) => {
-
+console.log(reviews);
 
 const reviewContainer = document.createElement("div");
 reviewContainer.className = "review_container";
 
 const img = document.createElement("img");
-img.src = review.img;
+img.src = review.image;
 
 const reviewSubContainer = document.createElement("div");
 
@@ -63,13 +63,21 @@ reviewSubContainer.append(userName, userRating, userReview);
 
 reviewContainer.append(img, reviewSubContainer);
 
+
+return reviewContainer
+
 };
 
 // 1.2 create function to render reviews 
 
+const reviewSection = document.querySelector(".reviews");
+
 const renderReviews = (reviews) => {
 
-  reviews.forEach(review => { renderReview(review)
+  reviews.forEach(review => { 
+    
+    const reviewElement = renderReview(review);
+    reviewElement.appendChild(reviewElement);
     
   });
 
@@ -78,11 +86,8 @@ const renderReviews = (reviews) => {
 
 // 1.3 
 
-const reviewSection = document.querySelector(".reviews");
-
-// want to keep tag h3 here how?
-
 renderReviews(reviews);
+
 
 
 
