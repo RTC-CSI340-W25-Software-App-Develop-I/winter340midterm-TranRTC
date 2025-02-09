@@ -77,7 +77,7 @@ const renderReviews = (reviews) => {
   reviews.forEach(review => { 
     
     const reviewElement = renderReview(review);
-    reviewElement.appendChild(reviewElement);
+    reviewSection.appendChild(reviewElement);
     
   });
 
@@ -87,7 +87,6 @@ const renderReviews = (reviews) => {
 // 1.3 
 
 renderReviews(reviews);
-
 
 
 
