@@ -29,24 +29,25 @@ const reviews = [
 //1.1 create a function to render 1 reviews
 /*
 
-<div class="review_container">
-    <img src="img url here"/>
-    <div>
-      <p> username here </p>
-      <p> star rating here </p>
-      <p> review here </p>
+<div class="review_container"> | reviewContainer (div)
+    <img src="img url here"/>   | img  (img) 
+    <div>                       | reviewSubContainer (div)
+      <p> username here </p>    | userName (p)
+      <p> star rating here </p> | userRating (p)
+      <p> review here </p>      | userReview (p)
     <div>
   </div>
 */
 
 const renderReview = (review) => {
-console.log(reviews);
+
 
 const reviewContainer = document.createElement("div");
 reviewContainer.className = "review_container";
 
 const img = document.createElement("img");
 img.src = review.image;
+img.alt = "default";
 
 const reviewSubContainer = document.createElement("div");
 
@@ -84,10 +85,36 @@ const renderReviews = (reviews) => {
 };
 
 
-// 1.3 
+// 1.3 call function to render and pass the argument which is an array of review
 
 renderReviews(reviews);
 
 
 
 //2. Append new reviews to the DOM from the form
+
+const reviewForm = document.querySelector("form");
+reviewForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const userName = document.querySelector("#username").value;
+  const postImage = document.querySelector("#image").value;
+  const userRating = document.querySelector("#star").value;
+  const reviewText = document.querySelector("#review").value
+
+  const newReview = {
+
+    username: userName,
+    image: postImage,
+    star: userRating,
+    review: reviewText,
+  };
+
+  reviews.push(newReview);
+
+  const newReviewElement = renderReview(newReview);
+  reviewSection.appendChild(newReviewElement);
+
+  reviewForm.reset();
+
+});
