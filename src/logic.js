@@ -10,3 +10,5 @@ export const calculateStarAverage = (reviewsArr) => {
   const averageStar = sum / reviewsArr.length;
   return averageStar;
 };
+
+
