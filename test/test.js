@@ -2,7 +2,6 @@ import { assert } from "chai";
 import { calculateStarAverage } from "../src/logic.js";
 
 
-
 const mockReviews = [
   {
     username: "Rose",
@@ -30,10 +29,10 @@ describe("Testing calculateStarAverage function", () => {
 
   
   // case: all 3 reviews
-  it("Should return the correct average ratings", () => {
+  it("Should return the correct average ratings for all reviews", () => {
 
     const result = calculateStarAverage(mockReviews);
-    assert.equal(result, 3, "The average rating should be 3");
+    assert.equal(result, 3, "The average rating should be 3 for all reviews");
 
   });
 
@@ -42,30 +41,29 @@ describe("Testing calculateStarAverage function", () => {
   it("should return the correct rating for first review", () => {
   
     const result = calculateStarAverage([mockReviews[0]]);
-    assert.equal(result, 5, "first review should start 5 star")
+    assert.equal(result, 5, "The correct number should be 5")
 
   });
 
   // case: only last review
   it("should return the correct rating for last review", () => {
     const result = calculateStarAverage([mockReviews[2]])
-    assert.equal(result, 1, " The correct average rating for last review is 1")
+    assert.equal(result, 1, " The correct number should be 1")
 
   });
 
   // case: first and second review
   it("it should return the correct average rating for first and second reviews", () => {
     const result = calculateStarAverage(mockReviews.slice(0, 2));
-    assert.equal(result, 4, "The correct average ratings is 4");
+    assert.equal(result, 4, "The correct number should be 4");
 
   });
 
   // case: second and third review
-  it("should return the correct average rating for second and third review", () => {
+  it("should return the correct average rating for second and third reviews", () => {
     const result = calculateStarAverage(mockReviews.slice(1, 3));
-    assert.equal(result, 2, "The average rating for review 2 & 3 is (3+1)/2 = 2 ")
+    assert.equal(result, 2, "The correct number should be 2 ")
   })
-
 
 
 });

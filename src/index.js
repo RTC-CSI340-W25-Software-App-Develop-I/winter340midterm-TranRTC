@@ -29,7 +29,7 @@ const reviews = [
 //1.1 create a function to render 1 reviews
 /*
 
-<div class="review_container"> | reviewContainer (div)
+<div class="review_container">  | reviewContainer (div)
     <img src="img url here"/>   | img  (img) 
     <div>                       | reviewSubContainer (div)
       <p> username here </p>    | userName (p)
@@ -47,7 +47,7 @@ reviewContainer.className = "review_container";
 
 const img = document.createElement("img");
 img.src = review.image;
-img.alt = "default";
+img.alt = "no image found";
 
 const reviewSubContainer = document.createElement("div");
 
@@ -55,7 +55,7 @@ const userName = document.createElement("p");
 userName.textContent = `${review.username}`;
 
 const userRating = document.createElement("p")
-userRating.textContent = `${review.star} out of 5`
+userRating.textContent = `${review.star} star out of 5`
 
 const userReview = document.createElement("p");
 userReview.textContent = `${review.review}`;
@@ -69,7 +69,7 @@ return reviewContainer
 
 };
 
-// 1.2 create function to render reviews (multi view)
+// 1.2 create function to render reviews (multi review) base on the above function for single review
 
 const reviewSection = document.querySelector(".reviews");
 
@@ -113,7 +113,11 @@ reviewForm.addEventListener("submit", (e) => {
     review: reviewText,
   };
 
+  console.log(newReview);// check new review object
+
   reviews.push(newReview); // push new review object to the existing reviews
+  
+  console.log(reviews); // check reviews after update a new review
 
   const newReviewElement = renderReview(newReview); // create new review element from new review
   reviewSection.appendChild(newReviewElement); // append new review element to the dorm
