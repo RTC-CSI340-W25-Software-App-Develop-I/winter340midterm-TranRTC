@@ -1,6 +1,7 @@
 import { assert } from "chai";
-
 import { calculateStarAverage } from "../src/logic.js";
+
+
 
 const mockReviews = [
   {
@@ -17,9 +18,22 @@ const mockReviews = [
   },
   {
     username: "Sandy Tuna",
-    image: "./images/avitar1.png",
+    image: "./images/avatar1.png",
     star: 1,
     review:
       "The coffee was great but the employees didn't let me stay past closing! ): Worst experience ever.",
   },
 ];
+
+
+describe("Testing calculateStarAverage function", () => {
+
+  it("Should return the correct average ratings", () => {
+
+    const aveRating = calculateStarAverage(mockReviews);
+    assert.equal(aveRating, 3, "The average rating should be 3");
+
+  });
+
+
+});

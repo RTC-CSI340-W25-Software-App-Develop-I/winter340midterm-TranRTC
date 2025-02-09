@@ -69,7 +69,7 @@ return reviewContainer
 
 };
 
-// 1.2 create function to render reviews 
+// 1.2 create function to render reviews (multi view)
 
 const reviewSection = document.querySelector(".reviews");
 
@@ -97,11 +97,14 @@ const reviewForm = document.querySelector("form");
 reviewForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
+
+  // get value from the form field
   const userName = document.querySelector("#username").value;
   const postImage = document.querySelector("#image").value;
   const userRating = document.querySelector("#star").value;
   const reviewText = document.querySelector("#review").value
 
+  // create new review object
   const newReview = {
 
     username: userName,
@@ -110,10 +113,10 @@ reviewForm.addEventListener("submit", (e) => {
     review: reviewText,
   };
 
-  reviews.push(newReview);
+  reviews.push(newReview); // push new review object to the existing reviews
 
-  const newReviewElement = renderReview(newReview);
-  reviewSection.appendChild(newReviewElement);
+  const newReviewElement = renderReview(newReview); // create new review element from new review
+  reviewSection.appendChild(newReviewElement); // append new review element to the dorm
 
   reviewForm.reset();
 
